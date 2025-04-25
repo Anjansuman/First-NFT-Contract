@@ -1,17 +1,19 @@
 //SPDX-License-Identifier: UNLICENSED
 
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NFTToken is ERC721Enumerable, Ownable {
+contract NewNFTMintToken is ERC721Enumerable, Ownable {
 
     uint256 tokenPrice = 0.01 ether;
     uint256 public tokenSupply;
     uint256 public nextTokenId = 1;
 
-    constructor() ERC721("NFTToken", "NT") Ownable(msg.sender) {}
+    constructor() ERC721("NFTToken", "NT") {
+        tokenSupply = 10;
+    }
 
     function mintTokens(uint256 supply) public onlyOwner {
         require(supply > 0, "must add atleast 1");
