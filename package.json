@@ -24,6 +24,6 @@
     "concurrently": "^9.1.2"
   },
   "devDependencies": {
-    "solc": "^0.8.0"
+    "solc": "^0.8.10"
   }
 }

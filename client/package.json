@@ -10,9 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@metamask/providers": "^22.0.0",
+    "@metamask/providers": "^22.0.1",
     "@tailwindcss/vite": "^4.1.4",
     "@truffle/contract": "^4.6.31",
+    "ethers": "^6.13.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind": "^4.0.0"
