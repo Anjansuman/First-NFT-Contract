@@ -33,6 +33,14 @@ export default function App() {
     const receipt = await contract.purchase();
   }
 
+  const withdraw = async () => {
+    if(!contract) {
+      toast.error("Contract not initialised yet!");
+      return;
+    }
+    const receipt = await contract.withdraw();
+  }
+
   const checkBoughtTickets = async () => {
     if(!contract) {
       toast.error("Contract not initialised yet!");
@@ -45,14 +53,14 @@ export default function App() {
   return <div className="h-screen w-screen bg-[#383838] text-white ">
     <Toaster position="top-center" />
     <Nav onClick={checkBoughtTickets} />
-    <UtilBar mint={mint} purchase={purchase} />
+    <UtilBar mint={mint} purchase={purchase} withdraw={withdraw} />
     <div className="px-7 py-4 text-2xl font-semibold ">
       My Tickets
     </div>
     <div className="flex flex-wrap gap-7 px-7 py-4">
       {
         boughtTickets ? boughtTickets.map((ticket, index) => (
-          <div className="h-34 w-30 bg-green-600 rounded-xl py-2 px-4 flex justify-center items-center " key={index}>
+          <div className="h-34 w-30 bg-green-600 rounded-xl py-2 px-4 flex justify-center items-center text-xl " key={index}>
             {ticket}
           </div>
         )) : "No Tickets Bought yet!"
